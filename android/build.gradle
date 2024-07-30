@@ -5,6 +5,9 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+
+        maven { url 'https://maven.channel.io/maven2' } // Channel Maven repository
     }
 
     dependencies {
