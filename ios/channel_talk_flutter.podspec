@@ -15,7 +15,7 @@ A new Flutter plugin project.
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'ChannelIOSDK', '11.7.3'
+  s.dependency 'ChannelIOSDK', '12.0.0'
   s.platform = :ios, '12.0'
   s.resource_bundles = {'channel_talk_flutter_privacy' => ['PrivacyInfo.xcprivacy']}
 

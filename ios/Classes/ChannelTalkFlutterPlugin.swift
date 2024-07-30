@@ -61,8 +61,8 @@ public class ChannelTalkFlutterPlugin: NSObject, FlutterPlugin {
         self.addTags(call, result)
       case "removeTags":
         self.removeTags(call, result)
-      case "openSupportBot":
-        self.openSupportBot(call, result)
+      case "openWorkflow":
+        self.openWorkflow(call, result)
       case "setAppearance":
         self.setAppearance(call, result)
       
@@ -387,16 +387,15 @@ public class ChannelTalkFlutterPlugin: NSObject, FlutterPlugin {
       }
   }
 
-  private func openSupportBot(_ call: FlutterMethodCall, _ result: @escaping FlutterResult) {
+  private func openWorkflow(_ call: FlutterMethodCall, _ result: @escaping FlutterResult) {
     guard let argMaps = call.arguments as? Dictionary<String, Any> else {
         result(FlutterError(code: call.method, message: "Missing argument", details: nil))
         return
     }
 
-    let supportBotId = argMaps["supportBotId"] as? String
-    let message = argMaps["message"] as? String
+    let workflowId = argMaps["workflowId"] as? String
 
-    ChannelIO.openSupportBot(with: supportBotId, message: message)
+    ChannelIO.openWorkflow(with: workflowId)
     result(true)
   }
 

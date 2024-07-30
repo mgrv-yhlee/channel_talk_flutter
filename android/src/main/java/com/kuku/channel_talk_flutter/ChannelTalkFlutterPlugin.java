@@ -112,8 +112,8 @@ public class ChannelTalkFlutterPlugin implements FlutterPlugin, MethodCallHandle
       addTags(call, result);
     } else if (call.method.equals("removeTags")) {
       removeTags(call, result);
-    } else if (call.method.equals("openSupportBot")) {
-      openSupportBot(call, result);
+    } else if (call.method.equals("openWorkflow")) {
+      openWorkflow(call, result);
     } else if (call.method.equals("setAppearance")) {
       setAppearance(call, result);
     } else {
@@ -458,15 +458,14 @@ public class ChannelTalkFlutterPlugin implements FlutterPlugin, MethodCallHandle
     });
   }
 
-  public void openSupportBot(@NonNull MethodCall call, @NonNull final Result result) {
+  public void openWorkflow(@NonNull MethodCall call, @NonNull final Result result) {
     if (!ChannelIO.isBooted()) {
       result.error("UNAVAILABLE", "Channel Talk is not booted", null);
     }
 
-    String openSupportBot = call.argument("supportBotId");
-    String message = call.argument("message");
+    String workflowId = call.argument("workflowId");
 
-    ChannelIO.openSupportBot(this.activity, openSupportBot, message);
+    ChannelIO.openWorkflow(this.activity, workflowId);
     result.success(true);
   }
 
